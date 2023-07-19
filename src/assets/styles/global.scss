@@ -53,3 +53,64 @@ a {
     color: $black;
   }
 }
+
+.btn-outline {
+  border: 1px solid $burgundy;
+  background: #FFF;
+  color: $black;
+  &:hover {
+    border: 1px solid #FFF;
+    background: $burgundy;
+    color: #FFF;
+  }
+}
+
+h1 {
+  font-size: $h1D;
+}
+h2 {
+  font-size: $h2D;
+}
+h3 {
+  font-size: $h3D;
+}
+h4 {
+  font-size: $h4D;
+}
+h5 {
+  font-size: $h5D;
+}
+h6 {
+  font-size: $h6D;
+}
+
+input {
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}
+input[type=email], input[type=password], input[type=text] {
+  border-radius: 7px;
+  border: 1px solid $gray;
+  background: #FFF;
+  height: 45px;
+  padding: 0px 15px;
+  width: 100%;
+  color: $dark-gray;
+  font-family: $root;
+  font-size: $parD;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px; /* 150% */
+  ::placeholder {
+    color: $gray;
+  }
+  &:hover {
+    color: $burgundy-hover;
+    border: 1px solid $burgundy-hover;
+  }
+  &:focus {
+    border: 1px solid $burgundy-hover;
+  }
+}

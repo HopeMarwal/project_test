@@ -162,31 +162,6 @@ nav {
       width: 100%;
     }
   }
-  input[type=email], input[type=password] {
-    border-radius: 7px;
-    border: 1px solid $gray;
-    background: #FFF;
-    height: 45px;
-    padding: 0px 15px;
-    width: 100%;
-    color: $dark-gray;
-    font-family: $root;
-    font-size: $parD;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 27px; /* 150% */
-    ::placeholder {
-      color: $gray;
-    }
-    &:hover {
-      color: $burgundy-hover;
-      border: 1px solid $burgundy-hover;
-    }
-    &:focus {
-      border: 1px solid $burgundy-hover;
-    }
-  }
-
   //Custom checkbox
 
   label {

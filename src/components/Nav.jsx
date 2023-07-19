@@ -9,7 +9,9 @@ export default function Nav() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalFlag, setModalFlag] = useState('')
 
+  //Auth session 
   const session = null
+  
   useEffect(() => {
       const dataFetch = async () => {
         const data = await (
@@ -19,7 +21,6 @@ export default function Nav() {
         ).json();
   
         // set state when the data received
-        console.log(data)
         setNavData(data);
       };
   
