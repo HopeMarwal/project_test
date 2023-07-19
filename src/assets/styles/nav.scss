@@ -7,6 +7,7 @@ nav {
   width: 100%;
   align-items: center;
   gap: 30px;
+  position: relative;
   .line {
     height: 1px;
     background: gray;
@@ -34,4 +35,62 @@ nav {
     }
 
   }
+}
+
+.menu {
+  border-right: 1px solid $gray;
+  display: flex;
+  position: absolute;
+  width: 400px;
+  z-index: 100;
+  background: #ffffffb4;
+  backdrop-filter: blur(5px);
+  height: 100vh;
+  flex-direction: column;
+  top:0;
+  left: 0;
+  padding: 30px;
+  &-header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: $h2D;
+  }
+  &-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 30px;
+    margin-bottom: auto;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    p {
+      font-size: $h4D;
+      text-transform: capitalize;
+      font-weight: 700;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  }
+  &-footer {
+    p {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: $parD;
+      font-weight: 400;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.lang {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 30px;
 }
