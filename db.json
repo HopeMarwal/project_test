@@ -1,60 +1,4 @@
 {
-    "menu": [
-        {
-            "text": "pagina principala",
-            "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761322/next_preset/icons/star_txakew.svg",
-            "id": 1,
-            "link": "/"
-        },
-        {
-            "text": "Despre Minicode",
-            "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761323/next_preset/icons/users_rrhpe7.svg",
-            "id": 2,
-            "link": "/"
-        },
-        {
-            "text": "Produse de asigurare",
-            "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/check-circle_lzsdn7.svg",
-            "id": 3,
-            "link": "/"
-        },
-        {
-            "text": "Caz asigurat",
-            "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/delivery_tk4ndh.svg",
-            "id": 4,
-            "link": "/"
-        },
-        {
-            "text": "Cariera",
-            "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/file-reg_kblwcb.svg",
-            "id": 5,
-            "link": "/"
-        },
-        {
-            "text": "Oferte",
-            "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761322/next_preset/icons/star_txakew.svg",
-            "id": 6,
-            "link": "/"
-        },
-        {
-            "text": "Noutati",
-            "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761322/next_preset/icons/support_blr45a.svg",
-            "id": 7,
-            "link": "/"
-        },
-        {
-            "text": "Intrebari",
-            "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/question_rrmyzs.svg",
-            "id": 8,
-            "link": "/"
-        },
-        {
-            "text": "Contacte",
-            "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/phone_pkqcoz.svg",
-            "id": 9,
-            "link": "/"
-        }
-    ],
     "nav": {
         "burgerBtn": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761923/next_preset/icons/menu1_o5d3xg.svg",
         "closeBtn": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761923/next_preset/icons/close_dsttsn.svg",
@@ -67,26 +11,83 @@
         "singUp": {
             "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/file-reg_kblwcb.svg",
             "text": "Inregistrare"
-        }
+        },
+        "menu": [
+            {
+                "text": "pagina principala",
+                "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761322/next_preset/icons/star_txakew.svg",
+                "id": 1,
+                "link": "/"
+            },
+            {
+                "text": "Despre Minicode",
+                "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761323/next_preset/icons/users_rrhpe7.svg",
+                "id": 2,
+                "link": "/"
+            },
+            {
+                "text": "Produse de asigurare",
+                "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/check-circle_lzsdn7.svg",
+                "id": 3,
+                "link": "/"
+            },
+            {
+                "text": "Caz asigurat",
+                "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/delivery_tk4ndh.svg",
+                "id": 4,
+                "link": "/"
+            },
+            {
+                "text": "Cariera",
+                "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/file-reg_kblwcb.svg",
+                "id": 5,
+                "link": "/"
+            },
+            {
+                "text": "Oferte",
+                "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761322/next_preset/icons/star_txakew.svg",
+                "id": 6,
+                "link": "/"
+            },
+            {
+                "text": "Noutati",
+                "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761322/next_preset/icons/support_blr45a.svg",
+                "id": 7,
+                "link": "/"
+            },
+            {
+                "text": "Intrebari",
+                "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/question_rrmyzs.svg",
+                "id": 8,
+                "link": "/"
+            },
+            {
+                "text": "Contacte",
+                "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/phone_pkqcoz.svg",
+                "id": 9,
+                "link": "/"
+            }
+        ],
+        "contacts" : [
+            {
+                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/phone_pkqcoz.svg",
+                "value": "+ 373 69 845 845"
+            },
+             {
+                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689762093/next_preset/icons/mail_rgzuhh.svg",
+                "value": "office@minicode.md"
+            },
+            {
+                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689762093/next_preset/icons/placeholder_i1eeya.svg",
+                "value": "mun. Chisinau, str Bucuresti, 101"
+            },
+            {
+                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689762093/next_preset/icons/search_b0lbrq.svg",
+                "value": "Harta"
+            }
+        ]
     },
-    "contacts" : {
-        "phone": {
-            "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689761320/next_preset/icons/phone_pkqcoz.svg",
-            "value": "+ 373 69 845 845"
-        },
-        "email": {
-            "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689762093/next_preset/icons/mail_rgzuhh.svg",
-            "value": "office@minicode.md"
-        },
-        "address": {
-            "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689762093/next_preset/icons/placeholder_i1eeya.svg",
-            "value": "mun. Chisinau, str Bucuresti, 101"
-        },
-        "map": {
-            "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689762093/next_preset/icons/search_b0lbrq.svg",
-            "value": "Harta"
-        }
-    },
+
     "footer": {
         "footerLogo" : "",
         "desc": "Dezvoltarea companiei MINICODE a fost determinată în mare parte de flexibilitatea soluțiilor și ofertelor, adaptivitații față de cerințele pieții și cerințelor clienților",

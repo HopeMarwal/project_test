@@ -1,0 +1,37 @@
+@import './var';
+
+nav {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  gap: 30px;
+  .line {
+    height: 1px;
+    background: gray;
+    flex: 1;
+  }
+  .not-loggedin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+  h3 {
+    font-size: $h3D;
+    font-weight: 800;
+    letter-spacing: 0.28px;
+  }
+  .btn-log-wrapper {
+    text-align: center;
+    
+    img {
+      width: 32px;
+    }
+    p {
+      font-family: $root;
+    }
+
+  }
+}
