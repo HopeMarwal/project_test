@@ -1,30 +1,37 @@
 import { useEffect, useState } from 'react'
 import '../assets/styles/nav.scss'
+import Modal from './Modal'
 
 export default function Nav() {
-    const [navData, setNavData] = useState(null)
-    const [isMenuOpen, setIsMenuOpen] = useState(true)
+  const [navData, setNavData] = useState(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-    const session = null
-    useEffect(() => {
-        const dataFetch = async () => {
-          const data = await (
-            await fetch(
-              "https://my-json-server.typicode.com/HopeMarwal/project_test/nav"
-            )
-          ).json();
-    
-          // set state when the data received
-          console.log(data)
-          setNavData(data);
-        };
-    
-        dataFetch();
-      }, [])
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [modalFlag, setModalFlag] = useState('')
+
+  const session = null
+  useEffect(() => {
+      const dataFetch = async () => {
+        const data = await (
+          await fetch(
+            "https://my-json-server.typicode.com/HopeMarwal/project_test/nav"
+          )
+        ).json();
   
-  if(!navData) {
-    return 'Loading'
+        // set state when the data received
+        console.log(data)
+        setNavData(data);
+      };
+  
+      dataFetch();
+  }, [])
+
+  const handleModal = (flag) => {
+    setModalFlag(flag)
+    setIsModalOpen(true)
   }
+
+
   return (
     <nav>
 
@@ -46,7 +53,7 @@ export default function Nav() {
 
           <ul className="menu-body">
             {
-              navData.menu.map((item) => (
+              navData?.menu.map((item) => (
                 // Enable router to push link 
                 <li className='menu_item' key={item.id}>
                   <img src={item.img} alt={item.text} />
@@ -63,7 +70,7 @@ export default function Nav() {
 
           <div className='menu-footer'>
             {
-              navData.contacts.map((item) => (
+              navData?.contacts.map((item) => (
                 <div key={item.value}>
                   <img src={item.icon} alt='contact' />
                   <p>{item.value}</p>
@@ -90,17 +97,21 @@ export default function Nav() {
       {session ? '' :
         <div className='not-loggedin'>
 
-          <div className='btn-log-wrapper'>
+          <div className='btn-log-wrapper' onClick={() => handleModal('singIn')}>
             <img src={navData?.singIn.icon} alt='logare' />
             <p>{navData?.singIn.text}</p>
           </div>
 
-          <div className='btn-log-wrapper'>
+          <div className='btn-log-wrapper' onClick={() => handleModal('singUp')}>
             <img src={navData?.singUp.icon} alt='logare' />
             <p>{navData?.singUp.text}</p>
           </div>
         </div>
       }
+      {
+        isModalOpen && <Modal flag={modalFlag} setIsModalOpen={setIsModalOpen} setModalFlag={setModalFlag}/>
+      }
+      
     </nav>
   )
 }
