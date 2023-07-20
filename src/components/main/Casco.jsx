@@ -1,51 +1,74 @@
 import { useEffect, useState } from 'react'
 import '../../assets/styles/main/casco.scss'
 import close from '../../assets/icons/close.svg'
+import ShowPrice from './ShowPrice'
 
-export default function Casco ({ data }) {
+export default function Casco ({ data, step, setStep, setTotalSteps }) {
 
-    const [step, setSteps] = useState(1)
+    // const [step, setSteps] = useState(1)
     const [isObjOpen, setIsObjOpen] = useState(true)
     const [isRiskOpen, setIsRiskOpen] = useState(false)
     const [ isMarcaOpen, setIsMarkaOpen ] = useState(false)
     const [ isModelOpen, setIsModelOpen ] = useState(false)
     const [ itemsModelMap, setItemsModal] = useState([])
 
+    const [ forwardBtn, setForwardBtn ] = useState('Inainte')
     const [formData, setFormData] = useState({
       type: '',
       marca: '',
       model: '',
       year: '',
-      marketPrice: '',
+      marketPrice: 0,
       territory: '',
       franshise: ''
     })
 
     useEffect(() => {
-    let newItems  = []
-    switch(formData.marca.toLocaleLowerCase()) {
-      case 'alfa romeo': newItems = data.progress[1].props.marca[0].models
-        break;
-      case 'bentley': newItems = data.progress[1].props.marca[1].models
-        break;
-      case 'bmw':newItems = data.progress[1].props.marca[2].models
-        break;
-      case 'chevrolet': newItems = data.progress[1].props.marca[3].models
-        break;
-      default: newItems = []
-        break;
+      let arr = []
+  
+      for(let i = 0; i < data.progress.length; i++) {
+        arr.push( i + 1 )
+      }
+      setTotalSteps(arr)
+    }, [data.progress.length])
+    useEffect(() => {
+      let newItems  = []
+      switch(formData.marca.toLocaleLowerCase()) {
+        case 'alfa romeo': newItems = data.progress[1].props.marca[0].models
+          break;
+        case 'bentley': newItems = data.progress[1].props.marca[1].models
+          break;
+        case 'bmw':newItems = data.progress[1].props.marca[2].models
+          break;
+        case 'chevrolet': newItems = data.progress[1].props.marca[3].models
+          break;
+        default: newItems = []
+          break;
     } 
     setItemsModal(newItems)
-    }, [formData.marca])
+    }, [formData.marca, data.progress])
   
     const handleChangeStep = (direc) => {
       if(direc === 'back') {
-        setSteps(prev => prev - 1)
+        setStep(prev => prev - 1)
+        setForwardBtn('Inainte')
       } else {
-        if(step < data.progress.length) {
-          setSteps(prev => prev + 1)
+        switch (true) {
+          case (forwardBtn === 'Comandă și achită online'):
+            break;
+          case (forwardBtn === 'Vezi costul'):
+            setForwardBtn('Comandă și achită online')
+            break;
+          case (step === data.progress.length - 1):
+            setStep(prev => prev + 1)
+            setForwardBtn('Vezi costul')
+            break;
+          case (step < data.progress.length):
+            setStep(prev => prev + 1)
+            break;
+          default: return
+
         }
-        
       }
     }
 
@@ -166,6 +189,59 @@ export default function Casco ({ data }) {
               </div>
             </div>
           }
+          {
+            step === 3 && 
+            <div className='third'>
+              <label>
+                <p className='title'>Valoarea de piață ( € )</p>
+                <input
+                  type='text'
+                  value={formData.marketPrice}
+                  onChange={(e) => setFormData({...formData, marketPrice: e.target.value})}
+                />
+              </label>
+
+              <p className='title'>Teritoriul de acoperire CASCO</p>
+              <div className='custom-checkbox_wrap'>
+                {
+                  data.progress[2].props.territory.map((item) => (
+                    <label className="custom-checkbox">
+                      <input
+                        name='territory'
+                        type="radio"
+                        checked={formData.territory === item}
+                        onChange={() => setFormData({...formData, territory: item})}
+                      />
+                      <span></span>
+                      <p>{item}</p>
+                    </label>
+                  ))
+                }
+              </div>
+
+              <p className="title">Franșiza</p>
+              <div className='custom-checkbox_wrap'>
+                {
+                  data.progress[2].props.franchise.map((item) => (
+                    <label className="custom-checkbox">
+                      <input
+                        name='franchise'
+                        type="radio"
+                        checked={formData.franshise === item}
+                        onChange={() => setFormData({...formData, franshise: item})}
+                      />
+                      <span></span>
+                      <p>{item}</p>
+                    </label>
+                  ))
+                }
+              </div>
+
+              {/* Show price */}
+              {forwardBtn === 'Comandă și achită online' && <ShowPrice /> }
+              
+            </div>
+          }
 
         </form>
         <div className='step-btns'>
@@ -177,10 +253,11 @@ export default function Casco ({ data }) {
             Inapoi
           </button>
           <button
+            disabled = { (step === 1 && !formData.type) || (step === 2 && (!formData.marca || !formData.model || !formData.year)) || (step === 3 && (!formData.marketPrice || !formData.territory || !formData.franshise ))}
             className='btn'
-            onClick={() => handleChangeStep('forward')}
+            onClick={(e) => handleChangeStep('forward', e.target.value)}
           >
-            Înainte
+            {forwardBtn}
           </button>
         </div>
         </div>

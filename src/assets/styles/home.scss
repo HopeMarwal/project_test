@@ -5,10 +5,12 @@ section {
   justify-content: space-between;
   background-color: $light-gray;
 }
+
 .wrapper {
-  margin: 100px auto;
+  margin: auto;
   width: 100%;
   max-width: 1300px;
+  padding: 100px 10px;
 }
 // Header banner
 .header-banner {
@@ -60,5 +62,79 @@ section {
         }
     }
   }
+}
+
+// Progress side bar
+.progress-bar {
+  border-left: 1px solid $gray;
+  padding: 0 36px;
+  height: 100%;
+}
+.step_container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  flex-direction: column;
+  padding: 20px 0;
+  position: relative;
+}
+.step-wrapper {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  .progress-line {
+    padding: 20px 0 60px 0;
+    height: 100%;
+    div { 
+      width: 2px;
+      height: 100%;
+      margin: auto;
+      background-color: $gray;
+    }
+    &.completed {
+      div {
+        background-color: $success;
+      }
+    }
+  }
+  &:last-child {
+    flex: 0;
+    .progress-line {
+      display: none;
+    }
+  }
+}
+
+.step-style {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid $dark-gray;
+  transition: 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  &.completed {
+    background-color: $success;
+    border-color: $success;
+    .step-count {
+      color: $white;
+    }
+  }
+}
+.step-count {
+  font-size: 19px;
+  color: $dark-gray;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.check-mark {
+  font-size: 26px;
+  font-weight: 600;
+  color: $white;
+  transform: scaleX(-1) rotate(-46deg);
 }
 

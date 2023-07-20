@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import close from '../assets/icons/close.svg'
 
 export default function Modal({ flag, setIsModalOpen, setModalFlag }) {
@@ -130,7 +130,7 @@ const SingUp = ({ setModalFlag, setIsModalOpen }) => {
           onChange={(e) => setRegData({...regData, confirmPass: e.target.value})}
         />    
 
-        <label>
+        <label className="custom-checkbox">
           <input
             type="checkbox"
             checked={regData.terms}

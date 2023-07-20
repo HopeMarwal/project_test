@@ -6,7 +6,11 @@ import Casco from './main/Casco';
 export default function Home() {
 
   const [mainData, setData] = useState(null)
+  const [ rca, setRca ] = useState(null)
+  const [ greenCard, setGreenCard ] = useState(null)
   const [selectedCategory, setSelectedCategory] = useState('casco')
+  const [ steps, setTotalSteps ] = useState([])
+  const [ step, setStep ] = useState(1)
 
   useEffect(() => {
     const dataFetch = async () => {
@@ -17,17 +21,32 @@ export default function Home() {
       ).json();
 
       // set state when the data received
-      console.log(data)
       setData(data);
     };
 
-    dataFetch();
-}, [])
+    const fetchGreenCard = async () => {
+      const data = await (
+        await fetch(
+          "https://my-json-server.typicode.com/HopeMarwal/fake_api/main"
+        )
+      ).json();
 
-const handleChangeCategory = (category) => {
-  console.log(category)
-  setSelectedCategory(category.toLocaleLowerCase())
-}
+      // set state when the data received
+      console.log(data)
+      //setData(data);
+    }
+
+    dataFetch();
+    fetchGreenCard()
+
+  }, [])
+
+  const handleChangeCategory = (category) => {
+    console.log(category)
+    setSelectedCategory(category.toLocaleLowerCase())
+  }
+
+
   return (
     <section>
       <aside>
@@ -54,12 +73,44 @@ const handleChangeCategory = (category) => {
         </div>
 
         <div className='wrapper_category'>
-          {mainData && selectedCategory === 'casco' && <Casco data={mainData?.casco} />}
+          {mainData && selectedCategory === 'casco' && 
+            <Casco
+              data={mainData?.casco}
+              step={step}
+              setStep={setStep}
+              setTotalSteps={setTotalSteps}
+            />
+          }
         </div>
       </div>
 
       <aside>
-        progress
+        <div className='progress-bar'>
+         
+          <div className='step_container'>
+            {/* map */}
+            {
+              steps.map((item) => (
+                <div key={item} className='step-wrapper'>
+
+                <div className={`${step >= item && 'completed'} step-style`}>
+                  {step > item 
+                    ? <div className='check-mark'>L</div>
+                    :<div className='step-count'>{item}</div>
+                  }
+                </div>
+                
+                <div className={`${step > item  && 'completed'} progress-line`}>
+                  <div></div>
+                </div>
+
+              </div>
+              ))
+            }
+            
+          </div>
+          
+        </div>
       </aside>
     </section>
   )

@@ -4,7 +4,7 @@
 .container {
   display: flex;
   gap: 30px;
-  padding: 10px;
+  padding: 30px 10px;
   .w-50 {
     width: calc(50% - 15px);
   }
@@ -12,6 +12,7 @@
   .step-btns {
     display: flex;
     justify-content: space-between;
+    margin-top: 50px;
   }
 }
 .first {
@@ -120,6 +121,48 @@
       color: #948E8C;
     }
     
+  }
+}
+
+.third {
+  label {
+    display: block;
+    margin: 40px 0;
+  }
+  .custom-checkbox_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .custom-checkbox {
+    display: flex;
+    margin: 10px 0 40px 0;
+    p {
+      font-size: $parD;
+    }
+    span {
+      top: 2px;
+    }
+  }
+  .title {
+    font-size: $parD;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .show-price {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    color: $black;
+    p {
+      font-family: Arial;
+      font-size: $h2D;
+      font-weight: 700;
+    }
+    span {
+      font-family: Arial;
+      font-size: $h5D;
+      font-weight: 400;
+    }
   }
 }
 .accordion {

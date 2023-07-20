@@ -146,6 +146,166 @@
                         }
                     }
                 ]
+            },
+            "rca": {
+                "object": [ 
+                    "Asigurarea RCA oferă protecție pentru eventualele prejudicii cauzate de asigurat terțelor persoane prin accidente de autovehicule pe teritoriul Republicii Moldova, și anume: deces sau vătămări corporale; avarii sau distrugeri ale unor bunuri (inclusiv autovehicule)."
+                ],
+                "riscs": [
+                    "Deces sau vătămări corporale; avarii sau distrugeri ale unor bunuri (inclusiv autovehicule), cauzate de asigurat terțelor persoane prin accidente de autovehicule pe teritoriul Republicii Moldova"   
+                ],
+                "progress": [
+                    {
+                        "title": "Alege tipul autovehiculului",
+                        "props": {
+                            "imnatreculat": {
+                                "title": "Autovehicolul este înmatriculat în:",
+                                "values": ["Republica Moldova"]
+                            },
+                            "posesor": {
+                                "title": "Posesorul autovehicoluiui este persoană:",
+                                "values": ["Fizica", "Juridica"]
+                            } ,
+                            "domiciliu": {
+                                "title": "Domiciliul persoanei asigurate"
+                            } 
+                        }
+                    },
+                    {
+                        "title": "Alege tipul autovehiculului",
+                        "props": [
+                            {
+                                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689783921/next_preset/icons/car_ias7fp.svg",
+                                "title": "Autoturism cu pînă la 9 locuri",
+                                "id": 1
+                            },
+                            {
+                                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689783923/next_preset/icons/bus_ej8vzl.svg",
+                                "title": "Autovehicule destinate transportului de pers...",
+                                "id": 2
+                            },
+                            {
+                                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689846701/next_preset/icons/tractor_gnejaf.svg",
+                                "title": "Tractoare rutiere avind puterea motorului",
+                                "id": 3
+                            },
+                            {
+                                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689783922/next_preset/icons/truck_xjvhm7.svg",
+                                "title": "Camioane si alte autovehicule a caror m...",
+                                "id": 4
+                            },
+                            {
+                                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689846561/next_preset/icons/Group_lvlbr0.svg",
+                                "title": "Motociclete",
+                                "id": 5
+                            }
+
+                        ]
+                    },
+                    {
+                        "title": "Numarul de locuri",
+                        "props":  [
+                            {
+                                "name": "Numarul de locuri",
+                                "id": 1,
+                                "options": ["Pina la 17 locuri, inclusiv al conducatorului", "De la 18 pina la 30 locuri, inclusiv al conducatorului", "Cu peste 30 locuri", "Troleibuze"]
+                            },
+                            {
+                                "name": "Numărul persoanelor admise la conducere:",
+                                "id": 2,
+                                "options": ["Limitat", "Nelimitat"]
+                            },
+                            {
+                                "name": "Stagiul de conducere a posesorului:",
+                                "id": 3,
+                                "options": ["Limitat", "Nelimitat"]
+                            }
+                        ]
+                           
+                    },
+                    {
+                        "title": "Numarul de locuri",
+                        "props":  [
+                            {
+                                "name": "Sunteti pensionar sau aveti grad de invaliditate?",
+                                "id": 1,
+                                "options": ["Da", "Nu"]
+                            },
+                            {
+                                "name": "Aţi mai încheiat contract de asigurare RCA?",
+                                "id": 2,
+                                "options": ["Da", "Nu"]
+                            },
+                            {
+                                "name": "Asigurare pentru remorci",
+                                "id": 3,
+                                "options": ["Da", "Nu"]
+                            }
+                        ]
+                           
+                    }
+                    
+                ]
+            },
+            "greenCard": {
+                "object": [ 
+                    "Prin asigurarea „Carte Verde” sunt protejate interesele terțelor persoane pentru pagubele produse vieții, sănătății și bunurilor lor în urma accidentelor rutiere, care au avut loc în afara hotarelor Republicii Moldova (pe teritoriul țărilor membre ale sistemului „Carte Verde”)."
+                ],
+                "riscs": [
+                    "Se acordă despăgubiri pentru prejudiciile provocate prin accidente de vehicule produse în limitele teritoriale de acoperire, în conformitate cu legislaţia în vigoare din statul pe teritoriul căruia s-a produs accidentul.", 
+                    "Despăgubirile se acordă pentru pagube materiale, cheltuieli de judecată efectuate de către persoana prejudiciată şi vătămări corporale sau deces, inclusiv pentru prejudicii fără caracter patrimonial."
+                ],
+                "progress": [
+                    {
+                        "title": "Alege tipul autovehiculului",
+                        "props": [
+                            {
+                                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689846561/next_preset/icons/Group_lvlbr0.svg",
+                                "title": "Motociclete B",
+                                "id": 1
+                            },
+                            {
+                                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689783921/next_preset/icons/car_ias7fp.svg",
+                                "title": "Autoturisme A",
+                                "id": 2
+                            },
+
+                            {
+                                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689783921/next_preset/icons/refrigerant_mpuxi9.svg",
+                                "title": "Camion pînă la 3,5 tone",
+                                "id": 3
+                            },
+                            {
+                                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689783922/next_preset/icons/truck_xjvhm7.svg",
+                                "title": "Camion mai mult de 3,5 tone",
+                                "id": 4
+                            },
+                            {
+                                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689783921/next_preset/icons/minibus_wlllh6.svg",
+                                "title": "Microbus pînă la 20 locuri",
+                                "id": 5
+                            },
+                            {
+                                "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689783923/next_preset/icons/bus_ej8vzl.svg",
+                                "title": "Autobuz peste 20 locuri",
+                                "id": 6
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Zona de deplasare",
+                        "props": {
+                            "zona": {
+                                "title": "Zona de deplasare",
+                                "values": ["Ucraina, Belarus", "Ucraina, Belarus, Federatia Rusa", "Tarile membre ale sistemului Carte Verde, Europa"]
+                            },
+                            "valid": {
+                                "title": "Valibilitatea politei",
+                                "values": ["15 zile", "1 Luna", "2 Luni", "3 Luni", "4 Luni", "5 Luni", "6 Luni", "7 Luni", "8 Luni", "9 Luni"]
+                            }
+                        }
+                    }
+                ]
             }
         }
 }

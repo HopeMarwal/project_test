@@ -8,6 +8,9 @@ nav {
   align-items: center;
   gap: 30px;
   position: relative;
+  border-bottom: 1px solid $gray;
+  box-shadow: 0px 5px 15px 2px rgba(27, 25, 24, 0.05);
+
   .line {
     height: 1px;
     background: gray;
@@ -160,66 +163,6 @@ nav {
     }
     .btn-login {
       width: 100%;
-    }
-  }
-  //Custom checkbox
-
-  label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    align-self: stretch;
-    font-size: $xsD;
-    position: relative;
-    padding-left: 35px;
-    cursor: pointer;
-    &:hover {
-      span {
-        border-color: $burgundy;
-      }
-    }
-
-    input {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-      height: 0;
-      width: 0;
-      &:checked ~ span::after {
-        display: block;
-      }
-    }
-    span {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 16px;
-      width: 16px;
-      border-radius: 4px;
-      border: 1px solid $gray;
-      &::after {
-        content: "";
-        position: absolute;
-        display: none;
-        left: 5px;
-        top: 2px;
-        width: 4px;
-        height: 8px;
-        border: solid $dark-gray;
-        border-width: 0 1px 1px 0;
-        transform: rotate(45deg);
-      }
-    }
-    a {
-      font-family: $root;
-      background: var(--gradient-2, linear-gradient(61deg, #A40731 0%, #830B3A 40.06%, #002359 100%));
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: $xsD;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 18px;
     }
   }
 }

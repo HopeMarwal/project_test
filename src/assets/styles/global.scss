@@ -32,7 +32,6 @@ a {
 
 .btn {
   display: flex;
-  width: 200px;
   height: 45px;
   padding: 0px 30px;
   justify-content: center;
@@ -47,6 +46,15 @@ a {
   font-weight: 700;
   line-height: 27px; /* 150% */
   transition: all 0.2s ease-in;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+    &:hover {
+      border: 1px solid #FFF;
+      background: $burgundy;
+      color: #FFF;
+    }
+  }
   &:hover {
     border: 1px solid $burgundy;
     background: #FFF;
@@ -90,6 +98,7 @@ input {
     outline: none;
   }
 }
+
 input[type=email], input[type=password], input[type=text] {
   border-radius: 7px;
   border: 1px solid $gray;
@@ -112,5 +121,54 @@ input[type=email], input[type=password], input[type=text] {
   }
   &:focus {
     border: 1px solid $burgundy-hover;
+  }
+}
+
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  font-size: $xsD;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  &:hover {
+    span {
+      border-color: $burgundy;
+    }
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    &:checked ~ span::after {
+      display: block;
+    }
+  }
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    border-radius: 4px;
+    border: 1px solid $burgundy;
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 5px;
+      top: 2px;
+      width: 4px;
+      height: 8px;
+      border: solid $burgundy;
+      border-width: 0 1px 1px 0;
+      transform: rotate(45deg);
+    }
   }
 }
