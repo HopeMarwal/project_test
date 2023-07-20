@@ -119,8 +119,14 @@ input[type=email], input[type=password], input[type=text] {
   &:hover {
     color: $burgundy-hover;
     border: 1px solid $burgundy-hover;
+    &::placeholder {
+      color: $burgundy-hover;
+    }
   }
   &:focus {
     border: 1px solid $burgundy-hover;
+    &::placeholder {
+      color: $dark-gray;
+    }
   }
 }

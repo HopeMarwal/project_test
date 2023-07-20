@@ -23,6 +23,7 @@ export default function Home() {
       ).json();
 
       // set state when the data received
+      console.log(data)
       setData(data);
     };
 
@@ -34,7 +35,6 @@ export default function Home() {
       ).json();
 
       // set state when the data received
-      console.log(data)
       setRca(data.rca)
       setGreenCard(data.greenCard)
     }
@@ -53,7 +53,40 @@ export default function Home() {
   return (
     <section>
       <aside>
-        left
+        {
+          mainData && 
+          <div className="contact-bar">
+          
+            <div className="contact-bar_item">
+              <img src={mainData.icons.lang.src} alt={mainData.icons.lang.title} />
+              <p><span>Рус</span> | Eng</p>
+            </div>
+
+            <div className="line"></div>
+
+            <div className="contact-bar_item">
+              <img src={mainData.icons.phone.src} alt={mainData.icons.lang.title} />
+              <p>{mainData.icons.phone.title}</p>
+            </div>
+
+            <div className="line"></div>
+
+            <div className="contact-bar_item">
+              <img src={mainData.icons.messenger.src} alt={mainData.icons.messenger.title} />
+              <p>{mainData.icons.messenger.title}</p>
+            </div>
+
+            <div className="horizontal_line"></div>
+
+            <div className="contact-bar_item">
+              <img src={mainData.icons.whatsapp.src} alt={mainData.icons.whatsapp.title} />
+              <p>{mainData.icons.whatsapp.title}</p>
+            </div>
+
+          </div>
+
+        }
+        
       </aside>
 
       <div className='wrapper'>

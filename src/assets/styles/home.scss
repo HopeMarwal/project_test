@@ -93,7 +93,7 @@ h3 {
   }
 }
 
-// Progress side bar
+// Progress side right bar
 .progress-bar {
   border-left: 1px solid $gray;
   padding: 0 36px;
@@ -165,6 +165,44 @@ h3 {
   transform: scaleX(-1) rotate(-46deg);
 }
 
+// Side left
+.contact-bar {
+  border-right: 1px solid $gray;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  .line {
+    width: 2px;
+    height: 100%;
+    margin: 20px 0;
+    background: $gray;
+  }
+  .horizontal_line {
+    width: 80%;
+    margin: 10px auto;
+    height: 2px;
+    background: $gray;
+  }
+  &_item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    p {
+      font-size: $smD;
+    }
+    span {
+      color: $burgundy;
+    }
+  }
+}
+
+// Containers form
 .first {
   display: flex;
   gap: 20px;
@@ -176,7 +214,6 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;
   margin: 5px 0;
 }
-
 .show-price {
   display: flex;
   gap: 20px;
@@ -193,7 +230,6 @@ h3 {
     font-weight: 400;
   }
 }
-//Custom form els
 .green-card {
   .second {
     flex-direction: column;
