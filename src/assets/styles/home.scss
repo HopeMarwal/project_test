@@ -5,12 +5,15 @@ section {
   justify-content: space-between;
   background-color: $light-gray;
 }
-
+ 
 .wrapper {
   margin: auto;
   width: 100%;
   max-width: 1300px;
   padding: 100px 10px;
+}
+h3 {
+  margin-bottom: 40px;
 }
 // Header banner
 .header-banner {
@@ -64,6 +67,32 @@ section {
   }
 }
 
+.radio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0 140px 0;
+  label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    .line {
+      width: 1px;
+      height: 6px;
+      background: #948E8C;
+    }
+    p {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: $smD;
+      color: #948E8C;
+    }
+    
+  }
+}
+
 // Progress side bar
 .progress-bar {
   border-left: 1px solid $gray;
@@ -104,7 +133,6 @@ section {
     }
   }
 }
-
 .step-style {
   position: relative;
   width: 40px;
@@ -130,11 +158,61 @@ section {
   color: $dark-gray;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .check-mark {
   font-size: 26px;
   font-weight: 600;
   color: $white;
   transform: scaleX(-1) rotate(-46deg);
 }
+
+.first {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.title {
+  font-size: $parD;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 5px 0;
+}
+
+.show-price {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  color: $black;
+  p {
+    font-family: Arial;
+    font-size: $h2D;
+    font-weight: 700;
+  }
+  span {
+    font-family: Arial;
+    font-size: $h5D;
+    font-weight: 400;
+  }
+}
+//Custom form els
+.green-card {
+  .second {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .custom-checkbox_wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    .custom-checkbox {
+      margin: 10px 0;
+    }
+  }
+  
+}
+.custom-checkbox_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 

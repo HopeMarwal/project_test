@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import '../assets/styles/home.scss'
 //Components
 import Casco from './main/Casco';
+import Rca from './main/Rca';
+import GreenCard from './main/GreenCard';
 
 export default function Home() {
 
@@ -33,7 +35,8 @@ export default function Home() {
 
       // set state when the data received
       console.log(data)
-      //setData(data);
+      setRca(data.rca)
+      setGreenCard(data.greenCard)
     }
 
     dataFetch();
@@ -76,6 +79,22 @@ export default function Home() {
           {mainData && selectedCategory === 'casco' && 
             <Casco
               data={mainData?.casco}
+              step={step}
+              setStep={setStep}
+              setTotalSteps={setTotalSteps}
+            />
+          }
+          {rca && selectedCategory === 'rca' && 
+            <Rca
+              data={rca}
+              step={step}
+              setStep={setStep}
+              setTotalSteps={setTotalSteps}
+            />
+          }
+          {greenCard && selectedCategory === 'carte verde' && 
+            <GreenCard
+              data={greenCard}
               step={step}
               setStep={setStep}
               setTotalSteps={setTotalSteps}

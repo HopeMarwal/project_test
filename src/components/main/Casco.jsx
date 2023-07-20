@@ -1,17 +1,13 @@
 import { useEffect, useState } from 'react'
 import '../../assets/styles/main/casco.scss'
-import close from '../../assets/icons/close.svg'
 import ShowPrice from './ShowPrice'
+import Accordion from './Accordion'
+import Radio from '../form/Radio'
+import Select from '../form/Select'
 
 export default function Casco ({ data, step, setStep, setTotalSteps }) {
 
-    // const [step, setSteps] = useState(1)
-    const [isObjOpen, setIsObjOpen] = useState(true)
-    const [isRiskOpen, setIsRiskOpen] = useState(false)
-    const [ isMarcaOpen, setIsMarkaOpen ] = useState(false)
-    const [ isModelOpen, setIsModelOpen ] = useState(false)
     const [ itemsModelMap, setItemsModal] = useState([])
-
     const [ forwardBtn, setForwardBtn ] = useState('Inainte')
     const [formData, setFormData] = useState({
       type: '',
@@ -29,8 +25,16 @@ export default function Casco ({ data, step, setStep, setTotalSteps }) {
       for(let i = 0; i < data.progress.length; i++) {
         arr.push( i + 1 )
       }
+
+      setStep(1)
       setTotalSteps(arr)
+
+      return(() => {
+        setTotalSteps([])
+      })
+      
     }, [data.progress.length])
+
     useEffect(() => {
       let newItems  = []
       switch(formData.marca.toLocaleLowerCase()) {
@@ -48,6 +52,10 @@ export default function Casco ({ data, step, setStep, setTotalSteps }) {
     setItemsModal(newItems)
     }, [formData.marca, data.progress])
   
+    const handleChangeFormValues = (prop, value) => {
+      setFormData({...formData, [prop]: value})
+    }
+
     const handleChangeStep = (direc) => {
       if(direc === 'back') {
         setStep(prev => prev - 1)
@@ -72,20 +80,9 @@ export default function Casco ({ data, step, setStep, setTotalSteps }) {
       }
     }
 
-    const handleSelectMarca = (e) => {
-      e.preventDefault()
-      
-      setFormData({...formData, marca: e.target.value, model: ''})
-      setIsMarkaOpen(false)
-      
+    const handleSelectMarca = (prop, value) => {
+      setFormData({...formData, marca: value, model: ''})
     }
-
-    const handleSelectModel = (e) => {
-      e.preventDefault()
-      setFormData({...formData, model: e.target.value})
-      setIsModelOpen(false)
-    }
-
     
     return (
       <div className='container'>
@@ -97,94 +94,55 @@ export default function Casco ({ data, step, setStep, setTotalSteps }) {
               {/* Map over all types of vehicles */}
   
               {data.progress[0].props.map((item) => (
-                <label
+                <Radio
                   key={item.id}
-                  className={`${formData.type === item.title && 'selected'}`}
-                >
-                  {/* Hidden input */}
-                  <input
-                    type="radio"
-                    name="type"
-                    value={item.title}
-                    checked={formData.type === item.title}
-                    onChange={() => setFormData({...formData, type: item.title})}
-                  />
-                  <img src={item.icon} alt={item.title}/>
-                  <p>{item.title}</p>
-              </label>
+                  checked={formData.type === item.title}
+                  item={item.title}
+                  name='type'
+                  span={false}
+                  img={item.icon}
+                  handleChange={() => handleChangeFormValues('type', item.title)}
+                  classTitle={`${formData.type === item.title && 'selected'} custom-radio`}
+                />
               ))}
             </div>
           }
           {step === 2 && 
             <div className='second'>
-              {/* Obiecte */}
-              <div className='custom_select'>
-                <p>Marca</p>
-                <input
-                  onClick={() => setIsMarkaOpen(prev => !prev)}
-                  type="text"
-                  value={formData.marca.toLocaleUpperCase() || 'Introduceți marca'}
-                  readOnly
-                />
-                <div className={`${isMarcaOpen && 'open'} dropdown`}>
-                  {
-                    data.progress[1].props.marca.map((marca) => (
-                      <button
-                        key={marca.id}
-                        value={marca.name}
-                        onClick={(e) => handleSelectMarca(e)}
-                      >
-                        {marca.name}
-                      </button>
-                    ))
-                  }
-                </div>
-                
-              </div>
+              {/* Marca */}
+              <Select
+                title='Marca'
+                value={formData.marca.toLocaleUpperCase() || 'Introduceți marca'}
+                mapItems={data.progress[1].props.marca}
+                prop='marca'
+                handleChange={handleSelectMarca}
+              />
 
-              {/* Riscuri */}
-              <div className='custom_select'>
-                <p>Marca</p>
-                <input
-                  onClick={() => setIsModelOpen(prev => !prev)}
-                  disabled={formData.marca.length === 0}
-                  type="text"
-                  value={formData.model.toLocaleUpperCase() || 'Introduceți model'}
-                  readOnly
-                />
-                <div className={`${isModelOpen && 'open'} dropdown`}>
-                  {
-                    itemsModelMap.map((item) => (
-                      <button
-                        key={item}
-                        value={item}
-                        onClick={(e) => handleSelectModel(e)}
-                      >
-                        {item}
-                      </button>
-                    ))
-                  }
-                </div>
-                
-              </div>
+              {/* Models */}
+              <Select
+                title='Model'
+                value={formData.model.toLocaleUpperCase() || 'Introduceți model'}
+                mapItems={itemsModelMap}
+                prop='model'
+                handleChange={handleChangeFormValues}
+              />
               
               {/* Map radio buttons to select year */}
+              <p className="title">Anul producerii</p>
               <div className="radio">
+              
               {data.progress[1].props.years.map((item) => (
-                <label
-                  key={item}
-                  className={`${formData.year === item && 'selected'}`}
-                >
-                  <input
-                    type="radio"
-                    name="year"
-                    value={item}
-                    checked={formData.year === item}
-                    onChange={() => setFormData({...formData, year: item})}
-                  />
-                  <div className='line'></div>
-                  <p>{item}</p>
-              </label>
+                <Radio
+                  key={item.id}
+                  checked={formData.year === item}
+                  item={item}
+                  name='year'
+                  img={false}
+                  span={false}
+                  handleChange={() => handleChangeFormValues('year', item)}
+                  classTitle={`${formData.year === item && 'selected'}`}
+                  line
+                />
               ))}
               </div>
             </div>
@@ -238,7 +196,7 @@ export default function Casco ({ data, step, setStep, setTotalSteps }) {
               </div>
 
               {/* Show price */}
-              {forwardBtn === 'Comandă și achită online' && <ShowPrice /> }
+              {forwardBtn === 'Comandă și achită online' && <ShowPrice total='569' /> }
               
             </div>
           }
@@ -261,62 +219,8 @@ export default function Casco ({ data, step, setStep, setTotalSteps }) {
           </button>
         </div>
         </div>
-        <div className='w-50'>
 
-          <div className='accordion obj'>
-
-            <div className="accordion_header" >
-              <h6 onClick={() => setIsObjOpen(prev => !prev)}>Obiectul asigurării</h6>
-              <button onClick={() => setIsObjOpen(false)}>
-                <img src={close} alt='close accordion object' />
-              </button>
-            </div>
-
-            <div className='border-bt'></div>
-
-            <div className={`${isObjOpen && 'active'} accordion_body-wrapper`}>
-              <div className='accordion_body'>
-                {
-                  data.object.map((item, index) => (
-                    <p key={index}>{item}</p>
-                  ))
-                }
-              </div>
-            </div>
-          </div>
-
-          <div className='accordion risk'>
-
-            <div className="accordion_header" >
-              <h6 onClick={() => setIsRiskOpen(prev => !prev)}>Riscuri și obligațiuni</h6>
-              <button onClick={() => setIsRiskOpen(false)}>
-                <img src={close} alt='close accordion object' />
-              </button>
-            </div>
-
-            <div className='border-bt'></div>
-
-            <div className={`${isRiskOpen && 'active'} accordion_body-wrapper`}>
-              <div className='accordion_body'>
-                {
-                  data?.riscs.map((item, index) => (
-                    <>
-                    <p key={index}>{item.title}</p>
-                    <ul>
-                      {item.list && item.list.map((li) => (
-                        <li key={li}><p>{li}</p></li>
-                      ))
-                      }
-                    </ul>
-                    
-                    </>
-                    
-                  ))
-                }
-              </div>
-            </div>
-          </div>
-        </div>
+          <Accordion obiect={data.object} riscs={data.riscs} />
 
       </div>
     )
