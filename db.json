@@ -85,7 +85,11 @@
                 "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689762093/next_preset/icons/search_b0lbrq.svg",
                 "value": "Harta"
             }
-        ]
+        ],
+        "lang": {
+            "langs":["Рус", "Ro"],
+            "icon": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689866843/next_preset/icons/lang_pwxjce.svg"
+        }
     },
 
     "footer": {
