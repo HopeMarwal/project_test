@@ -1,8 +1,12 @@
-import Carousel from "./Carousel.tsx"
+//Styles
 import '../assets/styles/embla.css'
 import '../assets/styles/testimonials.scss'
+//react Hooks
 import { useEffect, useState } from "react"
+//Components
 import TestimonialCard from "./TestimonialCard.jsx"
+import Carousel from "./Carousel.tsx"
+import { Rating } from "react-simple-star-rating";
 
 export default function Testimonials() {
   const [data, setData] = useState(null)

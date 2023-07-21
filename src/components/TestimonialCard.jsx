@@ -1,4 +1,4 @@
-import React from 'react'
+import StarRatings from "react-star-ratings"
 
 export default function TestimonialCard({ data }) {
   return (
@@ -9,7 +9,15 @@ export default function TestimonialCard({ data }) {
 
       <div className="info">
         <h5>{data.name}</h5>
-        <p>{data.rating}</p>
+        
+        <StarRatings 
+          rating={data.rating}
+          starDimension="20px"
+          starSpacing="2px"
+          starRatedColor="#E8A412"
+          starEmptyColor="#E7E5E4"
+          
+        />
         <p className='text'>{data.text}</p>
       </div>
     </div>

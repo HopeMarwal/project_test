@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react'
 import '../../assets/styles/main/rca.scss'
 import ShowPrice from './ShowPrice'
 import Accordion from './Accordion'
-import Checkbox from '../form/Checkbox'
 import Radio from '../form/Radio'
-import Select from '../form/Select'
 
 
 export default function GreenCard({data, step, setStep, setTotalSteps}) {

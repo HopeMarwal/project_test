@@ -4,7 +4,6 @@ import { PropsWithChildren, useCallback, useEffect, useState} from "react";
 //import CarouselControls from "./CarouselControls";
 import { DotButton } from "./CarouselDots";
 
-
 // Define the props
 type Props = PropsWithChildren & EmblaOptionsType;
 
@@ -12,10 +11,6 @@ const Carousel = ({ children, ...options }: Props) => {
   const [emblaRef,  emblaApi] = useEmblaCarousel(options);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState([])
-
-   
-  const canScrollNext = !!emblaApi?.canScrollNext();
-  const canScrollPrev = !!emblaApi?.canScrollPrev();
 
   useEffect(() => {
     function selectHandler() {

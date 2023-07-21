@@ -37,7 +37,7 @@ export default function Rca({ data, step, setStep, setTotalSteps }) {
     return(() => {
       setTotalSteps([])
     })
-    
+    // eslint-disable-next-line
   }, [data.progress.length])
 
   const handleChangeFormValues = (prop, value) => {
