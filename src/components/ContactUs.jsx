@@ -20,7 +20,7 @@ export default function ContactUs() {
     fetchData()
   }, [])
   return (
-    <div className='contact-us'>
+    <section className='contact-us'>
       <div className="w-50">
         <h3>{data?.title}</h3>
         <p>{data?.desc}</p>
@@ -43,6 +43,6 @@ export default function ContactUs() {
         </form>
       </div>
 
-    </div>
+    </section>
   )
 }

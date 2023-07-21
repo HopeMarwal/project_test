@@ -23,7 +23,7 @@ export default function Home() {
       ).json();
 
       // set state when the data received
-      console.log(data)
+
       setData(data);
     };
 
@@ -45,13 +45,13 @@ export default function Home() {
   }, [])
 
   const handleChangeCategory = (category) => {
-    console.log(category)
+    
     setSelectedCategory(category.toLocaleLowerCase())
   }
 
 
   return (
-    <section>
+    <section className='home'>
       <aside>
         {
           mainData && 

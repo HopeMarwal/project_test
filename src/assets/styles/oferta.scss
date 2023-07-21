@@ -1,0 +1,84 @@
+@import './var';
+
+.oferta-wrapper {
+  padding: 80px 0;
+  background-image: url('../icons/Ofert_bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.oferta {
+  max-width: 1300px;
+  margin: auto;
+  padding: 10px;
+  &_header {
+    display: flex ;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 34px;
+  }
+  a {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 0;
+    color: $burgundy;
+    font-family: $root;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.2s ease-in;
+    img {
+      transition: all 0.2s ease-in;
+      width: 20px;
+      height: 20px;
+    }
+    &:hover {
+      color: $burgundy-hover;
+      img {
+        width: 28px;
+        height: 20px;
+      }
+    }
+  }
+  &_body {
+    display: flex ;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+//  Oferta Card
+
+.oferta-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px 2px rgba(27, 25, 24, 0.05);
+  img {
+    transition: all 0.2s ease-in;
+    width: 100%;
+  }
+  &_body {
+    background-color: $white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  h4 {
+    color: $black;
+    font-family: $root;
+    font-weight: 700;
+    line-height: 40px;
+  }
+  p {
+    margin: 40px 0 30px 0;
+  }
+  &:hover {
+    img {
+      transform: scale(1.02);
+    }
+  }
+}
