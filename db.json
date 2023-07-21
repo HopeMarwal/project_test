@@ -89,7 +89,7 @@
     },
 
     "footer": {
-        "footerLogo" : "",
+        "footerLogo" : "https://res.cloudinary.com/djr5mw1np/image/upload/v1689923440/Logo_zwhvqd.svg",
         "desc": "Dezvoltarea companiei MINICODE a fost determinată în mare parte de flexibilitatea soluțiilor și ofertelor, adaptivitații față de cerințele pieții și cerințelor clienților",
         "companie": [
             {
